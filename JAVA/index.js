@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         container.insertBefore(cards[cards.length - 1].cloneNode(true), cards[0]); // Clone last item
 
         function scrollLeft() {
-            container.style.transition = "transform 0.5s ease-in-out";
+            container.style.transition = "transform 0.2s ease-in-out";
             container.style.transform = `translateX(${scrollAmount}px)`;
 
             setTimeout(() => {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function scrollRight() {
-            container.style.transition = "transform 0.5s ease-in-out";
+            container.style.transition = "transform 0.2s ease-in-out";
             container.style.transform = `translateX(-${scrollAmount}px)`;
 
             setTimeout(() => {
@@ -112,3 +112,59 @@ document.addEventListener("DOMContentLoaded", function () {
     setupInfiniteScroll("comedies-container");
     setupInfiniteScroll("crime-container");
 });
+
+
+
+
+
+
+
+
+function openModal(data) {
+    const movie = JSON.parse(data);
+
+    // Set modal content dynamically
+    document.getElementById('modalPoster').src = movie.image;
+    document.getElementById('modalTitle').textContent = movie.title;
+    document.getElementById('modalGenre').textContent = movie.genre;
+    document.getElementById('modalYear').textContent = movie.year;
+    document.getElementById('modalRating').textContent = movie.rating;
+    document.getElementById('modalDescription').textContent = movie.description;
+
+    // Show the modal
+    document.getElementById('movieModal').style.display = 'flex';
+}
+
+function closeModal(event) {
+    if (event.target.id === 'movieModal' || event.target.classList.contains('close-btn')) {
+        document.getElementById('movieModal').style.display = 'none';
+    }
+}
+
+// Event listener for the play trailer button
+document.querySelector('.play-btn').addEventListener('click', function(e) {
+    e.stopPropagation(); // Prevent the event from bubbling up
+    alert("Trailer playing..."); // Placeholder for actual trailer logic
+});
+
+// Prevent modal from opening automatically on page load
+document.addEventListener('DOMContentLoaded', function () {
+    // Ensure modal is not visible on page load
+    document.getElementById('movieModal').style.display = 'none';
+});
+
+// Add event listeners to movie cards
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', function () {
+        const movie = {
+            title: card.querySelector('h3').textContent,
+            image: card.querySelector('img').src,
+            genre: card.querySelector('.genre').textContent,
+            year: card.querySelector('.year').textContent,
+            rating: card.querySelector('.rating').textContent,
+            description: 'Some brief description about the movie goes here.'
+        };
+
+        openModal(JSON.stringify(movie)); // Open the modal with the movie data
+    });
+})

@@ -1,10 +1,8 @@
-<?php
-function isActive($page) {
-    return basename($_SERVER['PHP_SELF']) == $page ? 'active' : '';
-}
-?>
+<?php require_once 'functions.php'; ?>
+
 
 <link rel="stylesheet" href="../CSS/navbar.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <nav class="navbar">
 <div class="logo">
@@ -26,3 +24,6 @@ function isActive($page) {
         <i class="bx bx-user"></i>
     </div>
 </nav>
+
+
+
