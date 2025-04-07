@@ -55,7 +55,7 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
             <button class="scroll-btn left-btn" onclick="scrollLeft('toppick-container')">&#9664;</button>
         <div class="toppick-container" id="toppick-container">
         <?php foreach ($tops as $top): ?>
-                <div class="product-card">
+            <div class="product-card" onclick="openModal(`<?= htmlspecialchars(json_encode($top), ENT_QUOTES, 'UTF-8'); ?>`)">
                     <img src="<?= $top['image']; ?>" alt="<?= $top['title']; ?>" class="movie-poster">
                     <div class="movie-info">
                         <h3><?= $top['title']; ?></h3>
@@ -70,15 +70,35 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
  </div>
 
 
+    <!-- Modal for Top Picks -->
+    <div id="movieModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal(event)">&times;</span>
+        <img id="modalPoster" src="" alt="Movie Poster">
+        <div class="modal-details">
+            <h2 id="modalTitle"></h2>
+            <div class="genre-year-rating">
+                <span class="genre-tag" id="modalGenre"></span>
+                <span id="modalYear"></span> • 
+                <span>⭐ <span id="modalRating"></span></span>
+            </div>
+            <p id="modalDescription"></p>
+            <button class="play-btn">
+                ▶ Play Trailer
+            </button>
+        </div>
+    </div>
+</div>
+
 
  <!-- for you -->
  <div class="category-container">
-            <h2 class="head2">For you</h2>
+            <h2 class="head2">For You</h2>
     <div class="scroll-wrapper">
             <button class="scroll-btn left-btn" onclick="scrollLeft('for-you-container')">&#9664;</button>
         <div class="for-you-container" id="for-you-container">
         <?php foreach ($foryous as $foryou): ?>
-                <div class="product-card">
+                <div class="product-card" onclick="openModal(`<?= htmlspecialchars(json_encode($foryou), ENT_QUOTES, 'UTF-8'); ?>`)">
                     <img src="<?= $foryou['image']; ?>" alt="<?= $foryou['title']; ?>" class="movie-poster">
                     <div class="movie-info">
                         <h3><?= $foryou['title']; ?></h3>
@@ -99,7 +119,7 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
             <button class="scroll-btn left-btn" onclick="scrollLeft('popular-container')">&#9664;</button>
         <div class="popular-container" id="popular-container">
         <?php foreach ($populars as $popular): ?>
-                <div class="product-card">
+                <div class="product-card" onclick="openModal(`<?= htmlspecialchars(json_encode($popular), ENT_QUOTES, 'UTF-8'); ?>`)">
                     <img src="<?= $popular['image']; ?>" alt="<?= $popular['title']; ?>" class="movie-poster">
                     <div class="movie-info">
                         <h3><?= $popular['title']; ?></h3>
@@ -120,7 +140,7 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
             <button class="scroll-btn left-btn" onclick="scrollLeft('adventure-container')">&#9664;</button>
         <div class="adventure-container" id="adventure-container">
         <?php foreach ($adventures as $adventure): ?>
-                <div class="product-card">
+                <div class="product-card" onclick="openModal(`<?= htmlspecialchars(json_encode($adventure), ENT_QUOTES, 'UTF-8'); ?>`)">
                     <img src="<?= $adventure['image']; ?>" alt="<?= $adventure['title']; ?>" class="movie-poster">
                     <div class="movie-info">
                         <h3><?= $adventure['title']; ?></h3>
@@ -141,7 +161,7 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
             <button class="scroll-btn left-btn" onclick="scrollLeft('comedies-container')">&#9664;</button>
         <div class="comedies-container" id="comedies-container">
         <?php foreach ($comedies as $comedie): ?>
-                <div class="product-card">
+                <div class="product-card" onclick="openModal(`<?= htmlspecialchars(json_encode($comedie), ENT_QUOTES, 'UTF-8'); ?>`)">
                     <img src="<?= $comedie['image']; ?>" alt="<?= $comedie['title']; ?>" class="movie-poster">
                     <div class="movie-info">
                         <h3><?= $comedie['title']; ?></h3>
@@ -157,12 +177,12 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
 
 <!-- Crime action movies -->
  <div class="category-container">
-            <h2 class="head2">Crime action movies</h2>
+            <h2 class="head2">Crime Action Movies</h2>
             <div class="scroll-wrapper">
             <button class="scroll-btn left-btn" onclick="scrollLeft('crime-container')">&#9664;</button>
         <div class="crime-container" id="crime-container">
         <?php foreach ($crimes as $crime): ?>
-                <div class="product-card">
+                <div class="product-card" onclick="openModal(`<?= htmlspecialchars(json_encode($crime), ENT_QUOTES, 'UTF-8'); ?>`)">
                     <img src="<?= $crime['image']; ?>" alt="<?= $crime['title']; ?>" class="movie-poster">
                     <div class="movie-info">
                         <h3><?= $crime['title']; ?></h3>
@@ -176,14 +196,7 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
      </div>      
  </div>
 
-
-
-
-
-
-
+     <?php include("../navbar/footer.php"); ?>
     <script src="../JAVA/index.js"></script>
 </body>
-
-
 </html>
