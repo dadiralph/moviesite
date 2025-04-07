@@ -236,17 +236,28 @@ h2 span {
 }
 
 /* Container for scrolling items */
-.toppick-container {
+.toppick-container,
+.for-you-container,
+.popular-container,
+.adventure-container,
+.comedies-container,
+.crime-container {
     display: flex;
     gap: 20px;
-    overflow: hidden;
+    overflow-x: hidden; /* hide overflow unless triggered via JS */
     white-space: nowrap;
     transition: transform 0.5s ease-in-out;
     padding: 10px;
+    
 }
 
 /* Hide scrollbar */
-.toppick-container::-webkit-scrollbar {
+.toppick-container::-webkit-scrollbar,
+.for-you-container::-webkit-scrollbar,
+.popular-container::-webkit-scrollbar,
+.adventure-container::-webkit-scrollbar,
+.comedies-container::-webkit-scrollbar,
+.crime-container::-webkit-scrollbar {
     display: none;
 }
 

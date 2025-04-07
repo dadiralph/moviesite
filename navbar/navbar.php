@@ -8,7 +8,8 @@ function isActive($page) {
 
 <nav class="navbar">
 <div class="logo">
-        <img src="../Assets/logo.png" alt="Mo-view Logo" />
+        <img src="../Assets/logo.jpg" alt="Mo-view Logo" />
+        <h1>Mo-view</h1>
     </div>
     <ul class="nav-links">
         <li class="<?= isActive('index.php'); ?>"><a href="index.php">Home</a></li>
