@@ -62,3 +62,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// JavaScript for the "Learn More" button//
+
+document.addEventListener("DOMContentLoaded", function () {
+    function setupInfiniteScroll(containerId) {
+        const container = document.getElementById(containerId);
+        const cards = [...container.children];
+        const scrollAmount = cards[0].offsetWidth + 20; // Adjust based on card width & gap
+
+        // Duplicate first and last items for seamless looping
+        container.appendChild(cards[0].cloneNode(true)); // Clone first item
+        container.insertBefore(cards[cards.length - 1].cloneNode(true), cards[0]); // Clone last item
+
+        function scrollLeft() {
+            container.style.transition = "transform 0.5s ease-in-out";
+            container.style.transform = `translateX(${scrollAmount}px)`;
+
+            setTimeout(() => {
+                container.style.transition = "none";
+                container.insertBefore(container.lastElementChild, container.firstElementChild);
+                container.style.transform = "translateX(0)";
+            }, 500);
+        }
+
+        function scrollRight() {
+            container.style.transition = "transform 0.5s ease-in-out";
+            container.style.transform = `translateX(-${scrollAmount}px)`;
+
+            setTimeout(() => {
+                container.style.transition = "none";
+                container.appendChild(container.firstElementChild);
+                container.style.transform = "translateX(0)";
+            }, 500);
+        }
+
+        // Attach event listeners to the buttons
+        const leftButton = document.querySelector(`.left-btn[onclick="scrollLeft('${containerId}')"]`);
+        const rightButton = document.querySelector(`.right-btn[onclick="scrollRight('${containerId}')"]`);
+
+        leftButton.addEventListener("click", scrollLeft);
+        rightButton.addEventListener("click", scrollRight);
+    }
+
+    // Apply the infinite scroll for each category container
+    setupInfiniteScroll("toppick-container");
+    setupInfiniteScroll("for-you-container");
+    setupInfiniteScroll("popular-container");
+    setupInfiniteScroll("adventure-container");
+    setupInfiniteScroll("comedies-container");
+    setupInfiniteScroll("crime-container");
+});

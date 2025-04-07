@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.7);
     padding: 10px 20px;
     position: fixed;
     top: 0;
@@ -22,7 +22,19 @@ body {
     right: 0;
     z-index: 1000;
     width: 100%;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #635f5f;
+}
+
+.logo h1 {
+    color: rgb(253, 253, 253);
+    font-size: 20px;
+    transition: 0.3s;
+    position: absolute;
+    margin: 0;
+    top: 20px;
+    left: 90px;
+    
+  
 }
 
 .navbar .logo {
@@ -34,11 +46,14 @@ body {
 .navbar .logo img {
     width: 60px;
     height: 60px;
-    border-radius: 50px;
     left: 30px;
     position: absolute;
     top: 2px;
     transition: 0.3s;
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.1);
 }
 
 .nav-links {
@@ -55,7 +70,7 @@ body {
 }
 
 .nav-links a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -63,7 +78,7 @@ body {
 }
 
 .nav-links a:hover, .nav-links .active a {
-    background-color: rgba(83, 83, 83, 0.2);
+    background-color: rgba(207, 206, 206, 0.2);
     border-radius: 5px;
 }
 
@@ -90,14 +105,14 @@ body {
 }
 
 .search-icon i {
-    color: rgb(0, 0, 0);
+    color: rgb(207, 207, 207);
     font-size: 1.5rem;
     text-decoration: none;
     transition: 0.3s;
 }
 
 .search-icon a:hover {
-    color: #000000;
+    color: #9e9d9d;
 }
 
 .profile {
@@ -110,7 +125,7 @@ body {
 }
 
 .profile i {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 @media (max-width: 768px) {

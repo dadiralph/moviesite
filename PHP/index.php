@@ -70,39 +70,110 @@ include '../DATA/data.php'; // Include the data file containing the movie inform
  </div>
 
 
+
  <!-- for you -->
  <div class="category-container">
-            <h2>For you</h2>
-
-
+            <h2 class="head2">For you</h2>
+    <div class="scroll-wrapper">
+            <button class="scroll-btn left-btn" onclick="scrollLeft('for-you-container')">&#9664;</button>
+        <div class="for-you-container" id="for-you-container">
+        <?php foreach ($foryous as $foryou): ?>
+                <div class="product-card">
+                    <img src="<?= $foryou['image']; ?>" alt="<?= $foryou['title']; ?>" class="movie-poster">
+                    <div class="movie-info">
+                        <h3><?= $foryou['title']; ?></h3>
+                        <p><?= $foryou['genre']; ?> | <?= $foryou['year']; ?></p>
+                        <p>⭐ <?= $foryou['rating']; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+            <button class="scroll-btn right-btn" onclick="scrollRight('for-you-container')">&#9654;</button>
+     </div>      
  </div>
 
  <!-- popular movies -->
  <div class="category-container">
-            <h2>Popular Movies</h2>
-
-
+            <h2 class="head2">Popular Movies</h2>
+            <div class="scroll-wrapper">
+            <button class="scroll-btn left-btn" onclick="scrollLeft('popular-container')">&#9664;</button>
+        <div class="popular-container" id="popular-container">
+        <?php foreach ($populars as $popular): ?>
+                <div class="product-card">
+                    <img src="<?= $popular['image']; ?>" alt="<?= $popular['title']; ?>" class="movie-poster">
+                    <div class="movie-info">
+                        <h3><?= $popular['title']; ?></h3>
+                        <p><?= $popular['genre']; ?> | <?= $popular['year']; ?></p>
+                        <p>⭐ <?= $popular['rating']; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+            <button class="scroll-btn right-btn" onclick="scrollRight('popular-container')">&#9654;</button>
+     </div>      
  </div>
 
  <!-- Adventure movies -->
  <div class="category-container">
-            <h2>Adventure Movies</h2>
-
-
+            <h2 class="head2">Adventure Movies</h2>
+            <div class="scroll-wrapper">
+            <button class="scroll-btn left-btn" onclick="scrollLeft('adventure-container')">&#9664;</button>
+        <div class="adventure-container" id="adventure-container">
+        <?php foreach ($adventures as $adventure): ?>
+                <div class="product-card">
+                    <img src="<?= $adventure['image']; ?>" alt="<?= $adventure['title']; ?>" class="movie-poster">
+                    <div class="movie-info">
+                        <h3><?= $adventure['title']; ?></h3>
+                        <p><?= $adventure['genre']; ?> | <?= $adventure['year']; ?></p>
+                        <p>⭐ <?= $adventure['rating']; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+            <button class="scroll-btn right-btn" onclick="scrollRight('adventure-container')">&#9654;</button>
+     </div>      
  </div>
 
  <!-- Comedies -->
  <div class="category-container">
-            <h2>Comedies</h2>
-
-
+            <h2 class="head2">Comedies</h2>
+            <div class="scroll-wrapper">
+            <button class="scroll-btn left-btn" onclick="scrollLeft('comedies-container')">&#9664;</button>
+        <div class="comedies-container" id="comedies-container">
+        <?php foreach ($comedies as $comedie): ?>
+                <div class="product-card">
+                    <img src="<?= $comedie['image']; ?>" alt="<?= $comedie['title']; ?>" class="movie-poster">
+                    <div class="movie-info">
+                        <h3><?= $comedie['title']; ?></h3>
+                        <p><?= $comedie['genre']; ?> | <?= $comedie['year']; ?></p>
+                        <p>⭐ <?= $comedie['rating']; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+            <button class="scroll-btn right-btn" onclick="scrollRight('comedies-container')">&#9654;</button>
+     </div>      
  </div>
 
 <!-- Crime action movies -->
  <div class="category-container">
-            <h2>Crime action movies</h2>
-
-
+            <h2 class="head2">Crime action movies</h2>
+            <div class="scroll-wrapper">
+            <button class="scroll-btn left-btn" onclick="scrollLeft('crime-container')">&#9664;</button>
+        <div class="crime-container" id="crime-container">
+        <?php foreach ($crimes as $crime): ?>
+                <div class="product-card">
+                    <img src="<?= $crime['image']; ?>" alt="<?= $crime['title']; ?>" class="movie-poster">
+                    <div class="movie-info">
+                        <h3><?= $crime['title']; ?></h3>
+                        <p><?= $crime['genre']; ?> | <?= $crime['year']; ?></p>
+                        <p>⭐ <?= $crime['rating']; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+            <button class="scroll-btn right-btn" onclick="scrollRight('crime-container')">&#9654;</button>
+     </div>      
  </div>
 
 
